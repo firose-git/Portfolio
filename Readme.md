@@ -12,3 +12,4 @@ npm install --legacy-peer-deps
 npm run dev
 
 weather app deployment link : https://firose-git.github.io/Weather-App/
+npx gh-pages -d out

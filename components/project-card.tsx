@@ -1,46 +1,52 @@
-"use client"
+"use client";
 
-import type React from "react"
-import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
-import { useRef, useState } from "react"
+import type React from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { useRef, useState } from "react";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectCardProps {
-  title: string
-  description: string
-  tags: string[]
-  image: string
-  link: string
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  link: string;
 }
 
-export function ProjectCard({ title, description, tags, image, link }: ProjectCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const [rotation, setRotation] = useState({ x: 0, y: 0 })
-  const [isHovered, setIsHovered] = useState(false)
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  image,
+  link,
+}: ProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
+    if (!cardRef.current) return;
 
-    const rect = cardRef.current.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    const centerX = rect.width / 2
-    const centerY = rect.height / 2
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-    const rotateX = (y - centerY) / 10
-    const rotateY = (centerX - x) / 10
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
 
-    setRotation({ x: rotateX, y: rotateY })
-  }
+    setRotation({ x: rotateX, y: rotateY });
+  };
 
   const handleMouseLeave = () => {
-    setRotation({ x: 0, y: 0 })
-    setIsHovered(false)
-  }
+    setRotation({ x: 0, y: 0 });
+    setIsHovered(false);
+  };
 
   return (
     <div
@@ -53,7 +59,9 @@ export function ProjectCard({ title, description, tags, image, link }: ProjectCa
       <Card
         className={`overflow-hidden transition-all duration-300 ${isHovered ? "shadow-xl" : "shadow-md"}`}
         style={{
-          transform: isHovered ? `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)` : "none",
+          transform: isHovered
+            ? `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`
+            : "none",
           transition: "transform 0.2s ease-out",
         }}
       >
@@ -81,7 +89,9 @@ export function ProjectCard({ title, description, tags, image, link }: ProjectCa
           />
           <div
             className={`absolute bottom-3 right-3 bg-primary text-primary-foreground rounded-full p-2 transition-all duration-300 ${
-              isHovered ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              isHovered
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
             }`}
           >
             <ArrowUpRight className="h-4 w-4" />
@@ -100,5 +110,5 @@ export function ProjectCard({ title, description, tags, image, link }: ProjectCa
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

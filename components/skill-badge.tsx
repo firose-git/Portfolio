@@ -1,10 +1,10 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 
 interface SkillBadgeProps {
-  name: string
-  icon?: ReactNode
+  name: string;
+  icon?: ReactNode;
 }
 
 export function SkillBadge({ name, icon }: SkillBadgeProps) {
@@ -13,5 +13,5 @@ export function SkillBadge({ name, icon }: SkillBadgeProps) {
       {icon}
       <span>{name}</span>
     </Badge>
-  )
+  );
 }

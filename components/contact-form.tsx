@@ -1,50 +1,50 @@
-"use client"
+"use client";
 
-import React, { useRef, useState } from "react"
-import { Send } from "lucide-react"
-import emailjs from "emailjs-com"
+import React, { useRef, useState } from "react";
+import { Send } from "lucide-react";
+import emailjs from "emailjs-com";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const formRef = useRef<HTMLFormElement | null>(null)
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       await emailjs.sendForm(
         "service_3502w3h", // Your EmailJS service ID
         "template_rsgmhqo", // Your EmailJS template ID
         formRef.current!,
-        "z8cS4P76dF0PqmPUQ" // Your EmailJS public key
-      )
+        "z8cS4P76dF0PqmPUQ", // Your EmailJS public key
+      );
 
       toast({
         title: "Message sent!",
         description: "Thank you for your message. I'll get back to you soon.",
-      })
+      });
 
       // Reset the form
-      formRef.current?.reset()
+      formRef.current?.reset();
     } catch (error) {
       toast({
         title: "Failed to send",
         description: "Please try again later.",
         variant: "destructive",
-      })
-      console.error("EmailJS Error:", error)
+      });
+      console.error("EmailJS Error:", error);
     }
 
-    setIsSubmitting(false)
-  }
+    setIsSubmitting(false);
+  };
 
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
@@ -100,5 +100,5 @@ export function ContactForm() {
         </span>
       </Button>
     </form>
-  )
+  );
 }

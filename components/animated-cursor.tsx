@@ -1,67 +1,67 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export function AnimatedCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [hidden, setHidden] = useState(true)
-  const [clicked, setClicked] = useState(false)
-  const [linkHovered, setLinkHovered] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [hidden, setHidden] = useState(true);
+  const [clicked, setClicked] = useState(false);
+  const [linkHovered, setLinkHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Only render on client after hydration
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
-    if (!mounted) return
+    if (!mounted) return;
 
     const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
-      setHidden(false)
-    }
+      setPosition({ x: e.clientX, y: e.clientY });
+      setHidden(false);
+    };
 
-    const handleMouseDown = () => setClicked(true)
-    const handleMouseUp = () => setClicked(false)
+    const handleMouseDown = () => setClicked(true);
+    const handleMouseUp = () => setClicked(false);
 
     const handleMouseEnterLink = (e: MouseEvent) => {
-      const target = e.target as HTMLElement
+      const target = e.target as HTMLElement;
       if (
         target.tagName === "A" ||
         target.tagName === "BUTTON" ||
         target.closest("a") ||
         target.closest("button")
       ) {
-        setLinkHovered(true)
+        setLinkHovered(true);
       }
-    }
+    };
 
     const handleMouseLeaveLink = () => {
-      setLinkHovered(false)
-    }
+      setLinkHovered(false);
+    };
 
-    document.addEventListener("mousemove", updatePosition)
-    document.addEventListener("mouseenter", updatePosition)
-    document.addEventListener("mouseleave", () => setHidden(true))
-    document.addEventListener("mousedown", handleMouseDown)
-    document.addEventListener("mouseup", handleMouseUp)
-    document.addEventListener("mouseover", handleMouseEnterLink)
-    document.addEventListener("mouseout", handleMouseLeaveLink)
+    document.addEventListener("mousemove", updatePosition);
+    document.addEventListener("mouseenter", updatePosition);
+    document.addEventListener("mouseleave", () => setHidden(true));
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("mouseover", handleMouseEnterLink);
+    document.addEventListener("mouseout", handleMouseLeaveLink);
 
     return () => {
-      document.removeEventListener("mousemove", updatePosition)
-      document.removeEventListener("mouseenter", updatePosition)
-      document.removeEventListener("mouseleave", () => setHidden(true))
-      document.removeEventListener("mousedown", handleMouseDown)
-      document.removeEventListener("mouseup", handleMouseUp)
-      document.removeEventListener("mouseover", handleMouseEnterLink)
-      document.removeEventListener("mouseout", handleMouseLeaveLink)
-    }
-  }, [mounted])
+      document.removeEventListener("mousemove", updatePosition);
+      document.removeEventListener("mouseenter", updatePosition);
+      document.removeEventListener("mouseleave", () => setHidden(true));
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mouseover", handleMouseEnterLink);
+      document.removeEventListener("mouseout", handleMouseLeaveLink);
+    };
+  }, [mounted]);
 
   // 🧠 Prevent render until client mount to avoid hydration mismatch
-  if (!mounted) return null
+  if (!mounted) return null;
 
   return (
     <>
@@ -107,5 +107,5 @@ export function AnimatedCursor() {
         }
       `}</style>
     </>
-  )
+  );
 }

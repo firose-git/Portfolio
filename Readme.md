@@ -67,7 +67,9 @@ Reach me at:
 
 ---
 
-Thank you for stopping by!  
-— Mohamed Firose
+Thank you for taking the time to explore my code and projects!  
+I’m Mohamed Firose — truly happy to share my work with you.  
+
+Wishing you inspiration and joy on your own creative journey! 🚀✨
 
 

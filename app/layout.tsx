@@ -38,12 +38,14 @@ export default function RootLayout({
               <div className="flex gap-6 md:gap-10">
                 <a href="/" className="flex items-center space-x-2">
                   <Image
-                    src="/text_logo.png" // Place your logo in the `public/` folder
+                    src="/text_logo.png"
                     alt="MF Logo"
                     width={70}
                     height={32}
                     className="rounded-full"
+                    style={{ height: 'auto' }}  // This tells browser to auto-scale height preserving aspect ratio
                   />
+
                   {/* <span className="inline-block font-bold text-lg">Portfolio</span> */}
                 </a>
               </div>

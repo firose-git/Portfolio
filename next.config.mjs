@@ -28,6 +28,9 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  // Add these:
+  basePath: '/Portfolio',
+  assetPrefix: '/Portfolio',
 }
 
 if (userConfig) {

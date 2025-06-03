@@ -13,7 +13,6 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -28,9 +27,6 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  // Add these:
-  basePath: '/Portfolio',
-  assetPrefix: '/Portfolio',
 }
 
 if (userConfig) {

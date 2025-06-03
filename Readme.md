@@ -8,7 +8,7 @@
 ## 🚀 Live Demo
 
 Check out my portfolio here:  
-[Portfolio]([https://portfolio-ciiu.vercel.app/])
+[[Portfolio](https://portfolio-ciiu.vercel.app/)]
 
 ---
 

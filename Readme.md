@@ -8,7 +8,7 @@
 ## 🚀 Live Demo
 
 Check out my portfolio here:  
-[https://portfolio-ciiu-jmlfjg329-firose-gits-projects.vercel.app/](https://portfolio-ciiu-jmlfjg329-firose-gits-projects.vercel.app/)
+[Portfolio]([https://portfolio-ciiu.vercel.app/])
 
 ---
 
@@ -26,13 +26,7 @@ Aiming to blend creativity with code to build innovative projects that stand out
 
 ---
 
-## 🔐 Access Instructions
 
-> If you want to explore my portfolio in full detail, **please request access first**.  
-> I ensure controlled access to maintain exclusivity and showcase my work to interested viewers only.  
-> Feel free to reach out to me for access — I’ll be happy to share!
-
----
 
 ## 🎨 What Makes This Portfolio Different?
 
